@@ -77,7 +77,7 @@ int main_helper(char **array, char *av)
 
 	while (array[i] != NULL)
 	{
-		if (strcmp(array[i], "#") == 0 || strncmp(array[i], "#", 1) == 0)
+		if (_strcmp(array[i], "#") == 0 || _strncmp(array[i], "#", 1) == 0)
 			array[i] = '\0';
 	i++;
 	}
