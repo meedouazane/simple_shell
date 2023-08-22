@@ -5,7 +5,7 @@
  * @c: char
  * Return: Returns a pointer to the first occurrence of the char c in s.
  */
-​
+
 char *_strchr(const char *s, char c)
 {
 	while (*s != '\0')
@@ -48,24 +48,24 @@ void _puts(char *str)
  * @str: input string
  * Return: duplicated string.
  */
-​
+
 char *_strdup(const char *str)
 {
 	char *p;
 	int i = 0;
 	int length = 0;
-​
+
 	if (str == NULL)
 		return (NULL);
-​
+
 	length = _strlen(str);
-​
+
 	p = (char *) malloc(length + 1 * sizeof(char));
-​
+
 	if (p == NULL)
 		return (p);
-​
-​
+
+
 	while (i < length)
 	{
 		*(p + i) = *(str + i);
@@ -84,7 +84,7 @@ char *_strdup(const char *str)
 int _strncmp(const char *s1, const char *s2, size_t n)
 {
 	int re = 0;
-​
+
 	while (n > 0 && *s1 && *s2)
 	{
 		if (*s1 != *s2)
@@ -100,7 +100,7 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 		re = (int)(*s1);
 	else if (n > 0 && *s2)
 		re = -(int)(*s2);
-​
+
 	return (re);
 }
 
