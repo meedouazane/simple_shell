@@ -53,7 +53,7 @@ int exec(char **array, char *av)
 					array[i] = '\0';
 				i++;
 			}
-			if (execve(cmd, array, NULL) == -1)
+			if (execve(cmd, array, environ) == -1)
 				print_error(array, av, " : Not found");
 			return (1);
 			}
