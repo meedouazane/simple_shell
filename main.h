@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <limits.h>
 extern char **environ;
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, const char *src);
@@ -34,5 +35,6 @@ char *_strdup(const char *str);
 void free_array(char **array);
 void _lineputs(char *str);
 void print_error(char **array, char *av, char *message);
+int _atoi(char *s);
 #endif
 

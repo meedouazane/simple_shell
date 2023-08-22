@@ -148,7 +148,7 @@ void _cexit(char *array)
 {
 	int status;
 
-	status = atoi(array);
+	status = _atoi(array);
 	exit(status);
 	free(array);
 }
