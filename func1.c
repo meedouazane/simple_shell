@@ -34,7 +34,6 @@ int changeDir(char **array, char *av)
 		if (chdir(rep) == -1)
 		{
 			print_error(array, av, " : Not found");
-			free(rep);
 			return (-1);
 		}
 		p = getcwd(pb, sizeof(pb));
@@ -43,7 +42,9 @@ int changeDir(char **array, char *av)
 		}
 	else
 		chdir(home);
-
+	free(home);
+	free(OLD);
+	free(s);
 	return (0);
 }
 /**
@@ -84,6 +85,7 @@ int main_helper(char **array, char *av)
 	if (_strcmp(array[0], "env") == 0)
 	{
 		_environ();
+		free(array);
 		return (0);
 	}
 	if (_strcmp(array[0], "setenv") == 0)
@@ -106,10 +108,6 @@ int main_helper(char **array, char *av)
 	}
 	if (_strcmp(array[0], "exit") == 0)
 	{
-/*		if (array[1] != NULL)
-			_cexit(array[1]);
-		else
-			_cexit(array[0]);*/
 		free_array(array);
 		exit(0);
 	}

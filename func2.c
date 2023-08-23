@@ -42,7 +42,6 @@ char *_get_path(char *cmd)
 	path = _getenv("PATH");
 	if (path == NULL)
 		return (NULL);
-
 	tok = _strtok(path, ":");
 	while (tok)
 	{
@@ -122,11 +121,12 @@ char *input(int interactive)
 					buf[j] = buf[j + 1];
 			}
 			else if (buf[i] == '\0' || buf[i] != ' ')
+			{
 				break;
+			}
 			else
 				i++;
 		}
 	return (buf);
-	free(buf);
 }
 

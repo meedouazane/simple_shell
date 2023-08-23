@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 		buffer = input(is_terminal);
 		if (buffer == NULL)
 			continue;
-		array = split(buffer, " \t\n");
+		array = split(buffer, " \n");
 		if (array == NULL)
 		{
 			free(buffer);
