@@ -96,7 +96,7 @@ void _environ(void)
 char *input(int interactive)
 {
 	int get = 0;
-/*	int i = 0, j = 0;*/
+	int i = 0, j = 0;
 	char *buf = NULL;
 	size_t n = 10;
 
@@ -114,7 +114,7 @@ char *input(int interactive)
 			write(1, "$ ", 2);
 			get = getline(&buf, &n, stdin);
 		}
-		/**while (buf[i] != '\0')
+		while (buf[i] != '\0')
 		{
 			if (buf[i] == ' ')
 			{
@@ -123,7 +123,7 @@ char *input(int interactive)
 			}
 			else
 				i++;
-		}*/
+		}
 	return (buf);
 	free(buf);
 }
