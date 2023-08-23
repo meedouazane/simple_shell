@@ -81,13 +81,11 @@ char *_get_path(char *cmd)
 
 void _environ(void)
 {
-	int i = 0;
+	char **env = environ;
 
-	while (environ[i])
+	for (; *env; env++)
 	{
-		write(1, environ[i], _strlen(environ[i]));
-		write(1, "\n", 1);
-		i++;
+		_puts(*env);
 	}
 }
 /**
