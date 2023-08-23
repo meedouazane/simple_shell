@@ -67,7 +67,7 @@ char *_get_path(char *cmd)
 	}
 	if (stat(cmd, &st) == 0)
 	{
-		return (_strdup(cmd));
+		return (cmd);
 	}
 	free(path);
 	return (NULL);
