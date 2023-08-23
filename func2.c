@@ -67,6 +67,7 @@ char *_get_path(char *cmd)
 	}
 	if (stat(cmd, &st) == 0)
 	{
+		free(path);
 		return (cmd);
 	}
 	free(path);
@@ -106,6 +107,7 @@ char *input(int interactive)
 		get = getline(&buf, &n, stdin);
 		if (get == -1)
 		{
+			free(buf);
 			exit(0);
 		}
 		while (buf[0] == '\n')
