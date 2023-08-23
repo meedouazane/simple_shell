@@ -106,10 +106,12 @@ int main_helper(char **array, char *av)
 	}
 	if (_strcmp(array[0], "exit") == 0)
 	{
-		if (array[1] != NULL)
+/*		if (array[1] != NULL)
 			_cexit(array[1]);
 		else
-			_cexit(array[0]);
+			_cexit(array[0]);*/
+		free_array(array);
+		exit(0);
 	}
 	return (-1);
 }
