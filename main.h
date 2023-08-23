@@ -7,6 +7,8 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <limits.h>
+#include <errno.h>
 extern char **environ;
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, const char *src);
@@ -20,7 +22,7 @@ char **split(char *buf, char *del);
 void _environ(void);
 void changeDir_helper(char *oldpwd, char *currentpwd);
 void changeDir_helper2(char **array, char *rep, int array_size);
-char *input(void);
+char *input(int interactive);
 int _setenv(const char *name, char *value, int overwrite);
 int _unsetenv(const char *name);
 int exec(char **array, char *av);
@@ -34,5 +36,6 @@ char *_strdup(const char *str);
 void free_array(char **array);
 void _lineputs(char *str);
 void print_error(char **array, char *av, char *message);
+int _atoi(char *s);
 #endif
 

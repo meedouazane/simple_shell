@@ -53,8 +53,9 @@ int exec(char **array, char *av)
 					array[i] = '\0';
 				i++;
 			}
-			if (execve(cmd, array, NULL) == -1)
+			if (execve(cmd, array, environ) == -1)
 				print_error(array, av, " : Not found");
+			free(cmd);
 			return (1);
 			}
 		else
@@ -65,6 +66,7 @@ int exec(char **array, char *av)
 		print_error(array, av, " : Not found");
 		return (-1);
 	}
+/*	free_array(array);*/
 	return (-1);
 }
 /**

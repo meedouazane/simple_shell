@@ -41,10 +41,7 @@ char *_get_path(char *cmd)
 
 	path = _getenv("PATH");
 	if (path == NULL)
-	{
-		free(path);
 		return (NULL);
-	}
 
 	tok = _strtok(path, ":");
 	while (tok)
@@ -52,18 +49,28 @@ char *_get_path(char *cmd)
 		len = _strlen(tok) + _strlen(cmd) + 2;
 		full_path = malloc(len);
 		if (full_path == NULL)
+		{
+			free(path);
 			return (NULL);
-
+		}
 		_strcpy(full_path, tok);
 		_strcat(full_path, "/");
 		_strcat(full_path, cmd);
 		if (stat(full_path, &st) == 0)
+		{
+			free(path);
 			return (full_path);
+		}
 
 		free(full_path);
 		tok = _strtok(NULL, ":");
 	}
-	free(tok);
+	if (stat(cmd, &st) == 0)
+	{
+		free(path);
+		return (cmd);
+	}
+	free(path);
 	return (NULL);
 }
 
@@ -74,37 +81,50 @@ char *_get_path(char *cmd)
 
 void _environ(void)
 {
-	int i = 0;
+	char **env = environ;
 
-	while (environ[i])
+	for (; *env; env++)
 	{
-		write(1, environ[i], _strlen(environ[i]));
-		write(1, "\n", 1);
-		i++;
+		_puts(*env);
 	}
 }
 /**
  * input - get input from shell
- *
+ * @interactive: if it 1 continue 0 stop.
  * Return: buffer of strings
  */
-char *input(void)
+char *input(int interactive)
 {
 	int get = 0;
+	int i = 0, j = 0;
 	char *buf = NULL;
 	size_t n = 10;
 
+	if (interactive)
 	write(1, "$ ", 2);
 		get = getline(&buf, &n, stdin);
 		if (get == -1)
 		{
-			write(1, "\n", 1);
-			exit(1);
+			free(buf);
+			exit(0);
 		}
 		while (buf[0] == '\n')
 		{
+			if (interactive)
 			write(1, "$ ", 2);
 			get = getline(&buf, &n, stdin);
+		}
+		while (buf[i] != '\0')
+		{
+			if (buf[i] == ' ')
+			{
+				for (j = i; buf[j] != '\0'; j++)
+					buf[j] = buf[j + 1];
+			}
+			else if (buf[i] == '\0' || buf[i] != ' ')
+				break;
+			else
+				i++;
 		}
 	return (buf);
 	free(buf);
