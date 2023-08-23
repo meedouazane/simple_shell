@@ -3,14 +3,13 @@
  * main - The Main Entry
  * @argc: number of arguments
  * @argv: string of arguments
- * @env: environ
  * Return: Always 0
  */
 int main(int argc, char *argv[])
 {
 	char **array;
 	char *buffer;
-	int i = 0, j;
+	int i = 0;
 	int is_terminal = isatty(0);
 
 	(void)argc;
@@ -26,17 +25,8 @@ int main(int argc, char *argv[])
 			free(buffer);
 			continue;
 		}
-		i = 0;
-		while (array[i] != NULL)
-		{
-			if (_strcmp(array[i], " ") == 0)
-			{
-				for (j = i; array[j] != NULL; j++)
-					array[j] = array[j + 1];
-			}
-			else
-			i++;
-		}
+		if (_strcmp(array[i], " ") == 0)
+			continue;
 		if (main_helper(array, argv[0]) != -1)
 		{
 			free(buffer);

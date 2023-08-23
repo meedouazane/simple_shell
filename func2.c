@@ -89,17 +89,18 @@ void _environ(void)
 }
 /**
  * input - get input from shell
- *
+ * @interactive: if it 1 continue 0 stop.
  * Return: buffer of strings
  */
 char *input(int interactive)
 {
 	int get = 0;
+	int i = 0, j = 0;
 	char *buf = NULL;
 	size_t n = 10;
-	
+
 	if (interactive)
-	write(1, "$ ", 1);
+	write(1, "$ ", 2);
 		get = getline(&buf, &n, stdin);
 		if (get == -1)
 		{
@@ -108,8 +109,18 @@ char *input(int interactive)
 		while (buf[0] == '\n')
 		{
 			if (interactive)
-			write(1, "$ ", 1);
+			write(1, "$ ", 2);
 			get = getline(&buf, &n, stdin);
+		}
+		while (buf[i] != '\0')
+		{
+			if (buf[i] == ' ')
+			{
+				for (j = i; buf[j] != '\0'; j++)
+					buf[j] = buf[j + 1];
+			}
+			else
+				i++;
 		}
 	return (buf);
 	free(buf);
