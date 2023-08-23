@@ -111,7 +111,7 @@ int main_helper(char **array, char *av)
 		else
 			_cexit(array[0]);*/
 		free_array(array);
-		exit(errno);
+		exit(0);
 	}
 	return (-1);
 }
