@@ -95,7 +95,7 @@ void _environ(void)
 char *input(int interactive)
 {
 	int get = 0;
-	int i = 0, j = 0;
+/*	int i = 0, j = 0;*/
 	char *buf = NULL;
 	size_t n = 10;
 
