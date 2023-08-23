@@ -32,8 +32,12 @@ int main(int argc, char *argv[])
 			free(buffer);
 			continue;
 		}
-		exec(array, argv[0]);
-		continue;
+		if (exec(array, argv[0]))
+		{
+			free(array);
+			free(buffer);
+			continue;
+		}
 		free_array(array);
 		free(buffer);
 	}
