@@ -112,7 +112,7 @@ char *input(int interactive)
 			write(1, "$ ", 2);
 			get = getline(&buf, &n, stdin);
 		}
-		while (buf[i] != '\0')
+		/**while (buf[i] != '\0')
 		{
 			if (buf[i] == ' ')
 			{
@@ -121,7 +121,7 @@ char *input(int interactive)
 			}
 			else
 				i++;
-		}
+		}*/
 	return (buf);
 	free(buf);
 }
