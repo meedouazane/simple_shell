@@ -6,18 +6,18 @@
  * @env: environ
  * Return: Always 0
  */
-int main(int argc, char *argv[], char **env)
+int main(int argc, char *argv[])
 {
 	char **array;
 	char *buffer;
 	int i = 0, j;
+	int is_terminal = isatty(0);
 
-	(void)env;
 	(void)argc;
 	buffer = NULL;
 	while (1)
 	{
-		buffer = input();
+		buffer = input(is_terminal);
 		if (buffer == NULL)
 			continue;
 		array = split(buffer, " \t\n");

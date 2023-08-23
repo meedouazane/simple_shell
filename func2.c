@@ -92,13 +92,14 @@ void _environ(void)
  *
  * Return: buffer of strings
  */
-char *input(void)
+char *input(int interactive)
 {
 	int get = 0;
 	char *buf = NULL;
 	size_t n = 10;
-
-	write(1, "$ ", 2);
+	
+	if (interactive)
+	write(1, "$ ", 1);
 		get = getline(&buf, &n, stdin);
 		if (get == -1)
 		{
@@ -107,7 +108,8 @@ char *input(void)
 		}
 		while (buf[0] == '\n')
 		{
-			write(1, "$ ", 2);
+			if (interactive)
+			write(1, "$ ", 1);
 			get = getline(&buf, &n, stdin);
 		}
 	return (buf);

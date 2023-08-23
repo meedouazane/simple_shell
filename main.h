@@ -21,7 +21,7 @@ char **split(char *buf, char *del);
 void _environ(void);
 void changeDir_helper(char *oldpwd, char *currentpwd);
 void changeDir_helper2(char **array, char *rep, int array_size);
-char *input(void);
+char *input(int interactive);
 int _setenv(const char *name, char *value, int overwrite);
 int _unsetenv(const char *name);
 int exec(char **array, char *av);
