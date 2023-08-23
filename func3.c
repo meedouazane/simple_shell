@@ -66,7 +66,7 @@ int exec(char **array, char *av)
 		print_error(array, av, " : Not found");
 		return (-1);
 	}
-	free_array(array);
+/*	free_array(array);*/
 	return (-1);
 }
 /**
