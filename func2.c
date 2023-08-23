@@ -121,6 +121,8 @@ char *input(int interactive)
 				for (j = i; buf[j] != '\0'; j++)
 					buf[j] = buf[j + 1];
 			}
+			else if (buf[i] == '\0' || buf[i] != ' ')
+				break;
 			else
 				i++;
 		}
