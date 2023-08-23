@@ -27,6 +27,8 @@ int main(int argc, char *argv[])
 		}
 		if (_strcmp(array[i], " ") == 0)
 			continue;
+		if (_strcmp(array[0], "#") == 0 || _strncmp(array[0], "#", 1) == 0)
+			continue;
 		if (main_helper(array, argv[0]) != -1)
 		{
 			free(buffer);
