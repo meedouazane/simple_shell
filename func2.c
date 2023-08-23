@@ -106,7 +106,7 @@ char *input(int interactive)
 		get = getline(&buf, &n, stdin);
 		if (get == -1)
 		{
-			exit(1);
+			exit(0);
 		}
 		while (buf[0] == '\n')
 		{
