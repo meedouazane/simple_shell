@@ -17,7 +17,6 @@ void _lineputs(char *str)
 /**
  * _atoi- convert string to int.
  * @str: string we want to convert to int
- * 
  * Return: return 0 if code succeed else -1
  */
 int _atoi(char *str)
