@@ -1,8 +1,11 @@
 #include "main.h"
+
+
 /**
  * _strcat - concatenates two strings
  * @dest: destination string
  * @src: source string
+ *
  * Return: concatenated strings
  */
 
@@ -23,10 +26,11 @@ char *_strcat(char *dest, char *src)
 		return (dest);
 }
 /**
- * _strcpy - copier the string
+ * _strcpy - copy the string from file to another file
  * @dest: destination
  * @src: the string that we want to copy
- * Return: @dest
+ *
+ * Return: char  @dest
  */
 char *_strcpy(char *dest, const char *src)
 {

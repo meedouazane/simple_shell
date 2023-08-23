@@ -2,6 +2,8 @@
 /**
  * _lineputs - prints s string without moving to new line.
  * @str: the string we want to print.
+ *
+ *
  * Return: Always 0 (Success).
  */
 void _lineputs(char *str)
@@ -14,12 +16,14 @@ void _lineputs(char *str)
 }
 /**
  * _atoi- convert string to int.
- * @str: string we want to convert
- * Return: 0 Success -1 error.
+ * @str: string we want to convert to int
+ * 
+ * Return: return 0 if code succeed else -1
  */
 int _atoi(char *str)
 {
 	int i = 0;
+
 	long int result = 0;
 	int sign = 1;
 
