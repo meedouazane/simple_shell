@@ -103,7 +103,6 @@ char *input(int interactive)
 		get = getline(&buf, &n, stdin);
 		if (get == -1)
 		{
-			write(1, "\n", 1);
 			exit(1);
 		}
 		while (buf[0] == '\n')
