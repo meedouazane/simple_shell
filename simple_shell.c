@@ -5,12 +5,13 @@
  * @argv: string of arguments
  * Return: Always 0
  */
-int main(int argc, char *argv[])
+int main(int argc, char *argv[], char **env)
 {
 	char **array;
 	char *buffer;
 	int i = 0, j;
-
+	
+	(void)env;
 	(void)argc;
 	buffer = NULL;
 	while (1)
