@@ -3,6 +3,7 @@
  * main - The Main Entry
  * @argc: number of arguments
  * @argv: string of arguments
+ * @env: environ
  * Return: Always 0
  */
 int main(int argc, char *argv[], char **env)
@@ -10,7 +11,7 @@ int main(int argc, char *argv[], char **env)
 	char **array;
 	char *buffer;
 	int i = 0, j;
-	
+
 	(void)env;
 	(void)argc;
 	buffer = NULL;

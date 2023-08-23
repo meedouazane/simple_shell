@@ -63,6 +63,10 @@ char *_get_path(char *cmd)
 		free(full_path);
 		tok = _strtok(NULL, ":");
 	}
+	if (stat(cmd, &st) == 0)
+	{
+		return (_strdup(cmd));
+	}
 	free(tok);
 	return (NULL);
 }
