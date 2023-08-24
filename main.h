@@ -10,11 +10,8 @@
 #include <limits.h>
 #include <errno.h>
 extern char **environ;
-<<<<<<< HEAD
 void _oputs(char *str);
-=======
 /* bultInfunc1.c */
->>>>>>> 99d9649d5c06705bd29cb700c1b0ef7587e375ce
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, const char *src);
 int _strcmp(const char *s1, const char *s2);
