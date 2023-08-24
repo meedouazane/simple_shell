@@ -33,7 +33,7 @@ int changeDir(char **array, char *av)
 		}
 		if (chdir(rep) == -1)
 		{
-			print_error(array, av, " : Not found");
+			print_error(array, av, "can't cd to ");
 			return (-1);
 		}
 		p = getcwd(pb, sizeof(pb));

@@ -10,6 +10,7 @@
 #include <limits.h>
 #include <errno.h>
 extern char **environ;
+void _oputs(char *str);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, const char *src);
 int _strcmp(const char *s1, const char *s2);

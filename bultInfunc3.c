@@ -49,3 +49,25 @@ int _atoi(char *str)
 	}
 	return ((int)(result * sign));
 }
+/**
+ * _oputs - prints s string until second slash
+ * @str: the string we want to print.
+ * Return: Always 0 (Success).
+ */
+void _oputs(char *str)
+{
+	int slashCount = 0;
+
+	while (*str != 0)
+	{
+		if (*str == '/')
+		{
+			slashCount++;
+			if (slashCount == 2)
+			break;
+		}
+			_putchar(*str);
+		str++;
+	}
+	_putchar('\n');
+}

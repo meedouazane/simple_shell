@@ -53,15 +53,10 @@ void print_error(char **array, char *av, char *message)
 		_putchar('0' + i % 10);
 	}
 	_lineputs(": ");
-	if (array[1] != NULL)
-	{
-		_lineputs(array[0]);
-		_lineputs(": ");
-		_lineputs(array[1]);
-	}
-	else
 	_lineputs(array[0]);
-	_puts(message);
+	_lineputs(": ");
+	_lineputs(message);
+	_oputs(array[1]);
 	i++;
 }
 
