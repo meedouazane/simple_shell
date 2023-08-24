@@ -10,13 +10,26 @@
 #include <limits.h>
 #include <errno.h>
 extern char **environ;
+/* bultInfunc1.c */
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, const char *src);
 int _strcmp(const char *s1, const char *s2);
 int _strlen(const char *s);
+
+/* bultInfunc2.c */
+char *_strchr(const char *s, char c);
+int _putchar(char c);
+int _strncmp(const char *s1, const char *s2, size_t n);
+char *_strdup(const char *str);
+void _puts(char *str);
+
+/* bultInfunc3.c */
+
+void _lineputs(char *str);
+int _atoi(char *s);
+
 void _cexit(char *array);
 char *_getenv(const char *name);
-int _strncmp(const char *s1, const char *s2, size_t n);
 char *_get_path(char *cmd);
 char **split(char *buf, char *del);
 void _environ(void);
@@ -28,14 +41,9 @@ int _unsetenv(const char *name);
 int exec(char **array, char *av);
 int changeDir(char **array, char *av);
 int main_helper(char **array, char *av);
-int _putchar(char c);
 char *_strtok(char *str, const char *delim);
-void _puts(char *str);
-char *_strchr(const char *s, char c);
-char *_strdup(const char *str);
 void free_array(char **array);
-void _lineputs(char *str);
 void print_error(char **array, char *av, char *message);
-int _atoi(char *s);
+
 #endif
 
