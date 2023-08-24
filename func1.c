@@ -3,7 +3,8 @@
  * changeDir- Changes the current directory.
  * @array: inputed strings.
  * @av: string of arguments.
- * Return: (0) Success (-1) for failure
+ *
+ * Return: if succeed return 0 else (-1) for failure
  */
 int changeDir(char **array, char *av)
 {
