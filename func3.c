@@ -39,7 +39,7 @@ int exec(char **array, char *av)
 {
 	pid_t pid;
 	char *cmd;
-	int status, i = 0;
+	int status;
 
 	cmd = _get_path(*array);
 	if (cmd != NULL)
@@ -47,15 +47,8 @@ int exec(char **array, char *av)
 		pid = fork();
 		if (pid == 0)
 		{
-			while (array[i] != NULL)
-			{
-				if (_strcmp(array[i], ";") == 0)
-					array[i] = '\0';
-				i++;
-			}
 			if (execve(cmd, array, environ) == -1)
 				print_error(array, av, " : Not found");
-			free(cmd);
 			return (1);
 			}
 		else
@@ -66,7 +59,6 @@ int exec(char **array, char *av)
 		print_error(array, av, " : Not found");
 		return (-1);
 	}
-/*	free_array(array);*/
 	return (-1);
 }
 /**
@@ -112,7 +104,7 @@ int _setenv(const char *name, char *value, int overwrite)
 		_puts("setenv: missing operand");
 		return (-1);
 	}
-	 length = _strlen(name) + _strlen(value) + 2;
+	length = _strlen(name) + _strlen(value) + 2;
 	while (environ[i])
 	{
 		if (_strncmp(name, environ[i], _strlen(name)) == 0)
@@ -137,4 +129,3 @@ int _setenv(const char *name, char *value, int overwrite)
 			environ[i + 1] = NULL;
 	return (0);
 }
-
